@@ -18,7 +18,7 @@ Run the chatbot.py file
 
 The chatbot will start and will be accessible at http://localhost:5000 (or whichever port you've configured). You can now start interacting with it. Enjoy the conversation!
 
-<img src="https://i.imgur.com/yOKwp6l.jpg"/>
+<img src= "https://i.imgur.com/nF4u24P.jpg"/>
 <br />
 
 <h2> Contributing:</h2>
