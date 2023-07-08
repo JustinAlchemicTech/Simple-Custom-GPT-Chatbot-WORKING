@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Change this line */
+            width: 100vw; /* Add this line */
+            overflow: hidden; /* Add this line */
+        }
+
+        .chat-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px; /* Change this line */
+            height: 90%; /* Add this line */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-history {
+            flex: 1;
+            padding: 20px;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+        .chat-header {
+            background-color: #2e67ff;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .user {
+            align-self: flex-end;
+            background-color: #2e67ff;
+            color: #fff;
+        }
+
+        .assistant {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            gap: 10px;
+        }
+
+        .assistant img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-footer {
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chat-send {
+            padding: 10px 20px;
+            background-color: #2e67ff;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chat-send:hover {
+            background-color: #1a47b7;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">JARVIS</div>
+        <div class="chat-history" id="chat-history"></div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="user-input" placeholder="Type your message...">
+            <button class="chat-send" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("send-btn").addEventListener("click", async () => {
+            const userInput = document.getElementById("user-input");
+            const message = userInput.value.trim();
+            userInput.value = "";
+
+            if (message) {
+                const chatHistory = document.getElementById("chat-history");
+                chatHistory.innerHTML += `<div class="message user">User: ${message}</div>`;
+
+                const response = await fetch("/get_response", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: `user_input=${encodeURIComponent(message)}`,
+                }).then((res) => res.json());
+
+                chatHistory.innerHTML += `
+<div class="message assistant">
+    <img src="/static/images/jarvis.jpg" alt="Jarvis Icon">
+    <span>JARVIS: ${response.response}</span>
+</div>`;
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+        });
+
+        document.getElementById("user-input").addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("send-btn").click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+    
