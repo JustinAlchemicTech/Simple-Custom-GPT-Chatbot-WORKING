@@ -6,10 +6,12 @@ Before you start, you'll need an OpenAI API key. If you don't have one, you can 
 
 Set up the .env file: In the project root directory, there's a folder named config. Inside this folder, you'll find a file named .env.example. This is where you'll store your OpenAI API key.
 
-Enter your OpenAI API key: Open the .env file and enter your OpenAI API key. Read the README.txt for instructions.
+Enter your OpenAI API key: Open the .env file and enter your OpenAI API key. 
+Read the README.txt for instructions.
 
 <h2> Running the Chatbot:</h2>
-Once you've set up your .env file with your OpenAI API key, you're ready to run the chatbot. Run the chatbot.py file
+Once you've set up your .env file with your OpenAI API key, you're ready to run the chatbot. 
+Run the chatbot.py file
 
 The chatbot will start and will be accessible at http://localhost:5000 (or whichever port you've configured). You can now start interacting with it. Enjoy the conversation!
 
