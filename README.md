@@ -1,7 +1,7 @@
 # Simple Custom GPT JARVIS Chatbot Interface
 Welcome to the Simple Custom GPT JARVIS Chatbot Interface! This project leverages the power of OpenAI's latest GPT-3.5-turbo model to create a responsive and interactive chatbot. The chatbot uses Python for API calls to OpenAI and HTML, CSS, and JavaScript for a simple local web interface.
 
-<img src="https://i.imgur.com/ehD76yS.jpg"/>
+<img src="https://i.imgur.com/Ojidk7G.jpg"/>
 <br />
 
 <h2> Prerequisites:</h2>
@@ -17,6 +17,9 @@ Once you've set up your .env file with your OpenAI API key, you're ready to run 
 Run the chatbot.py file
 
 The chatbot will start and will be accessible at http://localhost:5000 (or whichever port you've configured). You can now start interacting with it. Enjoy the conversation!
+
+<img src="https://i.imgur.com/yOKwp6l.jpg"/>
+<br />
 
 <h2> Contributing:</h2>
 Contributions are always welcome! Feel free to submit a pull request if you have any improvements or features you'd like to add.
