@@ -1,6 +1,13 @@
 # Simple Custom GPT JARVIS Chatbot Interface
 Welcome to the Simple Custom GPT JARVIS Chatbot Interface! This project leverages the power of OpenAI's latest GPT-3.5-turbo model to create a responsive and interactive chatbot. The chatbot uses Python for API calls to OpenAI and HTML, CSS, and JavaScript for a simple local web interface.
 
+<h2> Languages Used: </h2>
+
+- Python
+- Javascript
+- CSS
+- HTML
+
 <img src="https://i.imgur.com/Ojidk7G.jpg"/>
 <br />
 
